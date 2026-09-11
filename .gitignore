@@ -1,0 +1,29 @@
+# dependencies and builds
+node_modules/
+dist/
+dev-dist/
+coverage/
+
+# tests
+test-results/
+playwright-report/
+playwright/.cache/
+
+# secrets and local config — never commit a token
+.env
+.env.*
+*.local
+
+# personal data — never commit a real export or backup (NFR-13)
+/data/
+/exports/
+*.export.json
+*.export.zip
+export.xml
+
+# editors and OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db

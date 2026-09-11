@@ -1,0 +1,66 @@
+name: Bug
+description: Un comportement observé qui ne correspond pas à ce que j'attendais (casquette métier)
+title: "UC-??? — "
+labels: ["type:bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Décris ce que tu as **observé** et ce que tu **attendais**, avec tes mots. Ne relis pas la spec avant : la confrontation au cas d'usage est le travail de l'analyste, à la qualification.
+  - type: input
+    id: uc
+    attributes:
+      label: Cas d'usage concerné
+      description: "Identifiant `UC-###` si tu le connais, sinon « je ne sais pas ». Ajoute aussi le label `UC-###`."
+      placeholder: "UC-007"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Ce que j'ai fait
+      description: Les étapes, dans l'ordre, avec les valeurs saisies (fictives si tu recopies).
+      placeholder: |
+        1. J'ouvre « Repas », j'ajoute une prise « Flocons d'avoine » 60 g
+        2. Je vide le champ quantité
+        3. …
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Ce que j'ai observé
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ce que j'attendais
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: Appareil
+      options:
+        - iPhone (Safari, application installée)
+        - iPhone (Safari, navigateur)
+        - Ordinateur (Chrome)
+        - Ordinateur (Firefox)
+        - Ordinateur (Safari)
+    validations:
+      required: true
+  - type: input
+    id: build
+    attributes:
+      label: Version testée
+      description: Commit ou date de construction depuis `main` (visible dans les informations de version de l'application).
+  - type: textarea
+    id: extra
+    attributes:
+      label: Captures, remarques
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **Réservé à l'analyste (qualification)** — à compléter en commentaire : le UC est-il respecté ? Label `sync:code-seul`, `sync:spec-et-code` ou `sync:sans-suite`, et version du UC si elle change.

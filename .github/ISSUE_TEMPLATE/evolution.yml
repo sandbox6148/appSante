@@ -1,0 +1,49 @@
+name: Demande d'évolution
+description: Quelque chose que j'aimerais que l'application fasse, ou fasse autrement (casquette métier)
+title: "UC-??? — "
+labels: ["type:evolution"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Décris le **besoin** et la **situation** où il apparaît, pas la solution. L'analyste traduira en modification de cas d'usage (ou en nouveau cas d'usage) et l'approuvera avant toute implémentation.
+  - type: input
+    id: uc
+    attributes:
+      label: Cas d'usage concerné
+      description: "`UC-###` existant, ou « nouveau » si aucun ne correspond. Ajoute aussi le label `UC-###`."
+    validations:
+      required: true
+  - type: textarea
+    id: situation
+    attributes:
+      label: Dans quelle situation
+      description: Le moment d'usage (le matin, aux repas, en séance, chaque semaine…) et ce que j'essaie de faire.
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: Ce que j'aimerais
+    validations:
+      required: true
+  - type: textarea
+    id: today
+    attributes:
+      label: Comment je fais aujourd'hui
+      description: Le contournement actuel, s'il y en a un.
+  - type: dropdown
+    id: importance
+    attributes:
+      label: Importance pour moi
+      options:
+        - Bloquant — je n'utilise pas l'application sans ça
+        - Important — je le contourne mais ça m'agace
+        - Confort — ce serait mieux
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **Réservé à l'analyste (qualification)** — en commentaire : UC modifié (version) ou nouveau UC (identifiant), label `sync:spec-et-code` ou `sync:sans-suite`.

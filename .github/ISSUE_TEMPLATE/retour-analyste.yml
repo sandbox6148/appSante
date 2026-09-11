@@ -1,0 +1,60 @@
+name: Retour analyste
+description: La spec est silencieuse, ambiguë ou contradictoire sur un point fonctionnel (ouvert par la casquette développeur ou l'agent)
+title: "UC-??? — retour analyste : "
+labels: ["type:retour-analyste"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ce ticket existe parce que l'agent **ne devine pas**. Il cite la section du UC, pose la question précisément et, si utile, liste les options. Il est fermé par l'analyste après mise à jour et réapprobation du UC.
+  - type: input
+    id: uc
+    attributes:
+      label: Cas d'usage et version
+      placeholder: "UC-007 v1.0"
+    validations:
+      required: true
+  - type: input
+    id: section
+    attributes:
+      label: Section du UC concernée
+      placeholder: "§6 extension 4b / §7 donnée « quantité » / §10 MSG-007-08"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Nature du manque
+      options:
+        - Silence — le UC ne dit rien sur ce cas
+        - Ambiguïté — deux lectures possibles
+        - Contradiction — deux passages du UC (ou UC et domaine/NFR) se contredisent
+        - Texte manquant — un texte visible n'a pas de MSG
+        - Test manquant — un chemin n'a pas de T
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Question précise
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Options vues par le développeur
+      description: Facultatif. L'analyste peut en choisir une, ou en écrire une autre.
+  - type: dropdown
+    id: blocking
+    attributes:
+      label: Bloquant pour l'implémentation ?
+      options:
+        - Oui — l'implémentation s'arrête sur ce point
+        - Non — le point est isolé, le reste avance
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **Réservé à l'analyste** — en commentaire : réponse, nouvelle version du UC, date de réapprobation. Puis fermer.
